@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\FornecedorController;
+use App\Http\Controllers\ProdutoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/produtos', [ProdutoController::class, 'index'])->name('produtos.index');
+Route::get('/produtos/create', [ProdutoController::class, 'create'])->name('produtos.create');
+Route::post('/produtos', [ProdutoController::class, 'store'])->name('produtos.store');
+
+Route::get('/fornecedores', [FornecedorController::class, 'index'])->name('fornecedores.index');
+Route::get('/fornecedores/create', [FornecedorController::class, 'create'])->name('fornecedores.create');
+Route::post('/fornecedores', [FornecedorController::class, 'store'])->name('fornecedores.store');

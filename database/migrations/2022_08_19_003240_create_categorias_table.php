@@ -13,13 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('fornecedor', function (Blueprint $table) {
+        Schema::create('categorias', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('password');
-            $table->string('foto');
-            $table->string('celular');
-            $table->string('segmento');
             $table->timestamps();
         });
     }
@@ -31,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fornecedor');
+        Schema::dropIfExists('categoria');
     }
 };
