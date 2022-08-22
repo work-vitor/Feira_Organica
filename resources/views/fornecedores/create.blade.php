@@ -15,7 +15,7 @@
             @csrf
             <div class="row mb-3">
                 <label for="nome">Nome</label>
-                <input type="text" name="nome" id="nome" class="form-control"
+                <input type="text" name="name" id="name" class="form-control"
                     placeholder="Informe o nome do fornecedor" required>
             </div>
             <div class="row mb-3">
@@ -24,7 +24,7 @@
             </div>
             <div class="row mb-3">
                 <label for="foto">Foto</label>
-                <input type="file" name="foto" id="foto" class="form-control p-1" required>
+                <input type="text" name="foto" id="foto" class="form-control p-1" required>
             </div>
             <div class="row mb-3">
                 <label for="segmento">Segmento</label>
