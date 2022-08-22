@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\FornecedorController;
-use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\Fornecedor\FornecedorController;
+use App\Http\Controllers\Produto\ProdutoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,11 +14,16 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::group(['as' => 'produtos.'], function(){
+    Route::get('produtos', [ProdutoController::class, 'index'])->name('index');
+    Route::get('createP', [ProdutoController::class, 'create'])->name('createP.create');
+    Route::post('createP', [ProdutoController::class, 'store'])->name('createP.store');
+});
 
-Route::get('/produtos', [ProdutoController::class, 'index'])->name('produtos.index');
-Route::get('/produtos/create', [ProdutoController::class, 'create'])->name('produtos.create');
-Route::post('/produtos', [ProdutoController::class, 'store'])->name('produtos.store');
 
-Route::get('/fornecedores', [FornecedorController::class, 'index'])->name('fornecedores.index');
-Route::get('/fornecedores/create', [FornecedorController::class, 'create'])->name('fornecedores.create');
-Route::post('/fornecedores', [FornecedorController::class, 'store'])->name('fornecedores.store');
+Route::group(['as' => 'fornecedores.'], function(){
+    Route::get('fornecedores', [FornecedorController::class, 'index'])->name('index');
+    Route::get('createF', [FornecedorController::class, 'create'])->name('createF.create');
+    Route::post('createF', [FornecedorController::class, 'store'])->name('createF.store');
+});
+

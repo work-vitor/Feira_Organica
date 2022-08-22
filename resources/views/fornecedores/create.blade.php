@@ -11,7 +11,7 @@
 
 <body>
     <div class="container mt-5">
-        <form action="{{ route('fornecedores.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('fornecedores.createF.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row mb-3">
                 <label for="nome">Nome</label>

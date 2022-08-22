@@ -1,27 +1,33 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Fornecedor;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ProdutoController extends Controller
+class FornecedorController extends Controller
 {
-    
     public function index()
     {
-        return view('produtos.index');
+        return view('fornecedores.index');
     }
 
     
     public function create()
     {
-        return view('produtos.create');
+        return view('fornecedores.create');
     }
 
     
     public function store(Request $request)
     {
         return $request->all();
+    }
+
+    
+    public function show($id)
+    {
+        //
     }
 
     

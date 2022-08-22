@@ -9,7 +9,8 @@
 
 
 # Projeto Feira Organica - IFSP - 6 SEMESTRE
-# By: Vitor Rodrigues - Pedro Zelenski - Pedro Goncalves
+
+## By: Vitor Rodrigues - Pedro Zelenski - Pedro Goncalves
 ## Lembrete
 
 - BAIXAR ALTERAÇÕES ANTES DE ENVIAR ALTERAÇÕES
