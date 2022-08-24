@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Fornecedor;
 
 use App\Http\Controllers\Controller;
 use App\Models\Fornecedor;
+use App\Http\Requests\Forncedor\RegisterRequest;
 use Illuminate\Http\Request;
 
 class FornecedorController extends Controller
@@ -20,7 +21,7 @@ class FornecedorController extends Controller
     }
 
     
-    public function store(Request $request)
+    public function store(RegisterRequest $request)
     {
         $requestData = $request->all();
 
