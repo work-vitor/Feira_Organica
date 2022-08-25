@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Produto;
 
 use App\Http\Controllers\Controller;
+use App\Models\Produto;
+use App\Http\Requests\Forncedor\RegisterRequest;
 use Illuminate\Http\Request;
+
 
 class ProdutoController extends Controller
 {
@@ -21,7 +24,9 @@ class ProdutoController extends Controller
     
     public function store(Request $request)
     {
-        return $request->all();
+        $requestData = $request->all();
+
+        Produto::create($requestData);
     }
 
     

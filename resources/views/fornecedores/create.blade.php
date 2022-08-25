@@ -18,17 +18,26 @@
             <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="foto">Nome</label>
-                            <input type="text" name="name" id="name" class="form-control" placeholder="Digite seu nome">
-                            <div>{{ $errors->first('name')}}</div>
+                            <label for="name">Nome</label>
+                            <input type="text" name="name" id="name" class="form-control {{ $errors->has('name') ? 'is-invalid' : ''}}" placeholder="Digite seu nome" value="{{ old('name')}}">
+                            <div class="invalid-feedback">{{ $errors->first('name')}}</div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="foto">Senha</label>
-                            <input type="senha" name="password" class="form-control" placeholder="Digite sua senha">
+                            <label for="password">Senha</label>
+                            <input type="password" name="password" class="form-control {{ $errors->has('password') ? 'is-invalid' : ''}}" placeholder="Digite sua senha">
+                            <div class="invalid-feedback">{{ $errors->first('password')}}</div>
                         </div>
                     </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="password">Senha</label>
+                            <input type="password" name="password_confirmation" class="form-control" placeholder="Confirmar senha">
+                        </div>
+                    </div>
+
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="foto">Foto</label>
@@ -38,13 +47,16 @@
                     <div class="col-12 col-md-6">
                         <div class="form-group">
                               <label for="segmento">Segmento</label>
-                              <input type="text" name="segmento" id="segmento" class="form-control" placeholder="Informe o segmento do fornecedor" >
+                              <input type="text" name="segmento" id="segmento" class="form-control {{ $errors->has('segmento') ? 'is-invalid' : ''}}" placeholder="Informe o segmento do fornecedor" value="{{ old('segmento')}}">
+                              <div class="invalid-feedback">{{ $errors->first('segmento')}}</div>
                         </div>
                     </div>
                     <div class="col-12 col-md-6">
                         <div class="form-group">
                             <label for="celular">Celular</label>
-                            <input type="text" name="celular" id="celular" class="form-control" placeholder="Informe o celular do fornecedor" >                        </div>
+                            <input type="text" name="celular" id="celular" class="form-control cel {{ $errors->has('celular') ? 'is-invalid'  : ''}}" placeholder="Informe o celular do fornecedor" value="{{ old('celular')}}">
+                            <div class="invalid-feedback">{{ $errors->first('celular')}}</div>
+                        </div>
                     </div>
                 </div>
 
@@ -54,6 +66,13 @@
             </form>
         </div>
     </div>
+
+    <script src="{{ asset('vendor/jquery/jquery.min.js.js')}}"></script>
+    <script src="{{ asset('vendor/jquery-mask/jquery.mask.min.js.js')}}"></script>
+
+    <script>
+        $('.cel').mask('(00) 00000-0000');
+    </script>
 </body>
 
 </html>

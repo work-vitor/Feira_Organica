@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,40 +8,56 @@
     <title>Larafeira | Cadastrar Produtos</title>
     <link rel="stylesheet" type="text/css" href="{{ asset('css/sb-admin-2.min.css') }}">
 </head>
-<body>
-    <div class="container mt-5">
-        <form action="{{ route('produtos.createP.store') }}" method="POST">
-            @csrf
-            <div class="row mb-3">
-                <div class="col-md-6">
-                    <label for="nome">Nome</label>
-                    <input type="text" name="nome" id="nome" class="form-control" placeholder="Digite o nome do produto" required>
+
+<body style="background-color: #e9faff;">
+    <h1 class="text-center my-4">CADASTRAR PRODUTO</h1>
+    <div class="card shadow my-5 w-75 mx-auto border border-3" style="border-radius: 20px;">
+        <div class="card-body">
+            <form action="{{ route('produtos.createP.store') }}" method="POST">
+                @csrf
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="nome">Nome</label>
+                            <input type="text" name="nome" id="nome" class="form-control {{ $errors->has('nome') ? 'is-invalid' : ''}}" placeholder="Digite o nome do produto">
+                            <div class="invalid-feedback">{{ $errors->first('nome')}}</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="categoria_id">Categoria</label>
+                            <select name="categoria_id" id="categoria_id" class="form-control {{ $errors->has('categoria_id') ? 'is-invalid' : ''}}">
+                                <option value="">Escolha uma categoria...</option>
+                                <option value="teste">teste</option>
+                                <!-- Foreach com as categorias -->
+                            </select>
+                            <div class="invalid-feedback">{{ $errors->first('categoria_id')}}</div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="preco">Preço</label>
+                            <input type="text" name="preco" id="preco" class="form-control {{ $errors->has('preco') ? 'is-invalid' : ''}}" placeholder="Digite o valor do produto">
+                            <div class="invalid-feedback">{{ $errors->first('preco')}}</div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="quantidade">Quantidade</label>
+                            <input type="number" name="quantidade" id="quantidade" class="form-control {{ $errors->has('quantidade') ? 'is-invalid' : ''}}" placeholder="Informe a quantidade do produto">
+                            <div class="invalid-feedback">{{ $errors->first('quantidade')}}</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <label for="categoria_id">Categoria</label>
-                    <select name="categoria_id" id="categoria_id" class="form-control" required>
-                        <option value="">Escolha uma categoria...</option>
-                        <option value="teste">teste</option>
-                        <!-- Foreach com as categorias -->
-                    </select>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <div class="col-md-6">
-                    <label for="preco">Preço</label>
-                    <input type="text" name="preco" id="preco" class="form-control" placeholder="Digite o valor do produto" required>
-                </div>
-                <div class="col-md-6">
-                    <label for="quantidade">Quantidade</label>
-                    <input type="number" name="quantidade" id="quantidade" class="form-control" placeholder="Informe a quantidade do produto" required>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <div class="col-md-12">
-                    <button class="btn btn-primary btn-block">Enviar</button>
-                </div>
-            </div>
+                <button type="submit" class="btn btn-success btn-block mt-3">
+                    Enviar
+                </button>
+        </div>
         </form>
     </div>
+    </div>
 </body>
+
 </html>
