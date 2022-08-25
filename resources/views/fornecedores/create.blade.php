@@ -40,6 +40,13 @@
 
                     <div class="col-md-6">
                         <div class="form-group">
+                            <label for="cpf">Foto</label>
+                            <input type="text" name="cpf" id="cpf" class="form-control p-1">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
                             <label for="foto">Foto</label>
                             <input type="text" name="foto" id="foto" class="form-control p-1">
                         </div>
