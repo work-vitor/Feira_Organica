@@ -25,7 +25,12 @@ class FornecedorController extends Controller
     {
         $requestData = $request->all();
 
+        $password = bcrypt($requestData['password']);
+
+        $requestData['password'] = $password;
+
         Fornecedor::create($requestData);
+
     }
 
     
