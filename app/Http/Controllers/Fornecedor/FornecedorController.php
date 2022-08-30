@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Fornecedor;
 
 use App\Http\Controllers\Controller;
 use App\Models\Fornecedor;
-use App\Http\Requests\Forncedor\RegisterRequest;
+use App\Http\Requests\Fornecedor\RegisterRequest;
 use Illuminate\Http\Request;
 
 class FornecedorController extends Controller
@@ -30,6 +30,10 @@ class FornecedorController extends Controller
         $requestData['password'] = $password;
 
         Fornecedor::create($requestData);
+        
+        return redirect()
+            ->route('fornecedores.loginF')
+            ->with('success', 'Conta criada com sucesso! Efetue Login');
 
     }
 

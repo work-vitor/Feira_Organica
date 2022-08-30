@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Forncedor;
+namespace App\Http\Requests\Fornecedor;
 
 use Illuminate\Foundation\Http\FormRequest;
 use App\Rules\cpf;

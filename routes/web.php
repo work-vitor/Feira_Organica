@@ -16,17 +16,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::group(['as' => 'produtos.'], function(){
+    
+    Route::group(['middleware' => 'auth'], function() {
+        Route::get('createP', [ProdutoController::class, 'create'])->name('createP.create');
+        Route::post('createP', [ProdutoController::class, 'store'])->name('createP.store');
+    });
+    
+
     Route::get('produtos', [ProdutoController::class, 'index'])->name('index');
-    Route::get('createP', [ProdutoController::class, 'create'])->name('createP.create')->middleware('auth');
-    Route::post('createP', [ProdutoController::class, 'store'])->name('createP.store');
 });
 
 
 Route::group(['as' => 'fornecedores.'], function(){
-    Route::get('fornecedores', [FornecedorController::class, 'index'])->name('index');
-    Route::get('createF', [FornecedorController::class, 'create'])->name('createF.create');
-    Route::post('createF', [FornecedorController::class, 'store'])->name('createF.store');
-    //Login
-    Route::get('loginF', [LoginController::class, 'create'])->name('loginF');
+    
+    Route::group(['middleware' => 'guest'], function(){
+        Route::get('createF', [FornecedorController::class, 'create'])->name('createF.create');
+        Route::post('createF', [FornecedorController::class, 'store'])->name('createF.store');
+        //Login
+        Route::get('loginF', [LoginController::class, 'create'])->name('loginF');
+        Route::post('loginF', [LoginController::class, 'store'])->name('loginF.store'); 
+    });
+
+    Route::group(['middleware' => 'auth'], function(){
+        Route::post('logout', [LoginController::class, 'destroy'])->name('loginF.destroy');
+        Route::get('fornecedores', [FornecedorController::class, 'index'])->name('index');
+    });
 });
+    
 

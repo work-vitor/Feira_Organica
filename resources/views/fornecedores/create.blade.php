@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -33,7 +33,7 @@
 
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="password">Senha</label>
+                            <label for="password">Confirmar Senha</label>
                             <input type="password" name="password_confirmation" class="form-control" placeholder="Confirmar senha">
                         </div>
                     </div>
@@ -41,7 +41,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="cpf">Cpf</label>
-                            <input type="text" name="cpf" id="cpf" class="form-control cpf {{ $errors->has('cpf') ? 'is-invalid' : ''}}">
+                            <input type="text" name="cpf" id="cpf" class="form-control cpf {{ $errors->has('cpf') ? 'is-invalid' : ''}}" placeholder="Digite seu cpf">
                             <div class="invalid-feedback">{{ $errors->first('cpf')}}</div>
                         </div>
                     </div>
@@ -49,7 +49,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="foto">Foto</label>
-                            <input type="text" name="foto" id="foto" class="form-control p-1">
+                            <input type="text" name="foto" id="foto" class="form-control p-1" placeholder="Insira a foto">
                         </div>
                     </div>
                     <div class="col-12 col-md-6">

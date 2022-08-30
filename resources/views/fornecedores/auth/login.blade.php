@@ -14,20 +14,28 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 col-lg-4">
+
+                    @if (session()->has('success'))
+                        <div class="alert alert-success">
+                            {{ session('success')}}
+                        </div>
+                    @endif
+
+                    @if (session()->has('warning'))
+                        <div class="alert alert-warning">
+                            {{ session('warning')}}
+                        </div>
+                    @endif
+
                 <div class="card shadow my-4 mx-auto">
                     <div class="card-body">
-                        <form action="" method="POST" autocomplete="off">
+                        <form action="{{ route('fornecedores.loginF.store')}}" method="POST" autocomplete="off">
                             @csrf
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group"> 
-                                        <input
-                                            type="email"
-                                            name="email"
-                                            class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}"
-                                            placeholder="E-mail"
-                                        >
-                                        <div class="invalid-feedback">{{ $errors->first('email') }}</div>
+                                        <input type="text" name="cpf" id="cpf" class="form-control cpf {{ $errors->has('cpf') ? 'is-invalid' : ''}}" placeholder="CPF" value="{{ old('cpf')}}">
+                                        <div class="invalid-feedback">{{ $errors->first('cpf')}}</div>
                                     </div>
                                 </div>
                                 
@@ -56,4 +64,12 @@
             </div>
         </div>
     </div>
+
+    <script src="{{ asset('vendor/jquery/jquery.min.js.js')}}"></script>
+    <script src="{{ asset('vendor/jquery-mask/jquery.mask.min.js.js')}}"></script>
+
+    <script>
+        $('.cpf').mask('000.000.000-00');
+    </script>
 </body>
+</html>
