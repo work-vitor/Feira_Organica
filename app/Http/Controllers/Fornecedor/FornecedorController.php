@@ -30,13 +30,10 @@ class FornecedorController extends Controller
         $requestData['password'] = $password;
 
         Fornecedor::create($requestData);
-<<<<<<< HEAD
-=======
         
         return redirect()
             ->route('fornecedores.loginF')
             ->with('success', 'Conta criada com sucesso! Efetue Login');
->>>>>>> login_joao
 
     }
 

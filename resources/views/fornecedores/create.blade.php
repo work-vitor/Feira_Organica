@@ -41,11 +41,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="cpf">Cpf</label>
-<<<<<<< HEAD
-                            <input type="text" name="cpf" id="cpf" class="form-control cpf {{ $errors->has('cpf') ? 'is-invalid' : ''}}">
-=======
                             <input type="text" name="cpf" id="cpf" class="form-control cpf {{ $errors->has('cpf') ? 'is-invalid' : ''}}" placeholder="Digite seu cpf">
->>>>>>> login_joao
                             <div class="invalid-feedback">{{ $errors->first('cpf')}}</div>
                         </div>
                     </div>
