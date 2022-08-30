@@ -40,8 +40,9 @@
 
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="cpf">Foto</label>
-                            <input type="text" name="cpf" id="cpf" class="form-control p-1">
+                            <label for="cpf">Cpf</label>
+                            <input type="text" name="cpf" id="cpf" class="form-control cpf {{ $errors->has('cpf') ? 'is-invalid' : ''}}">
+                            <div class="invalid-feedback">{{ $errors->first('cpf')}}</div>
                         </div>
                     </div>
 
@@ -79,6 +80,7 @@
 
     <script>
         $('.cel').mask('(00) 00000-0000');
+        $('.cpf').mask('000.000.000-00');
     </script>
 </body>
 

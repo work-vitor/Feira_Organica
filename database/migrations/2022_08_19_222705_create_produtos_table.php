@@ -19,6 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('categoria_id');
             $table->float('preco');
             $table->integer('quantidade');
+            $table->string('imagem', 256);
             $table->timestamps();
 
             $table->foreign('categoria_id')->references('id')->on('categorias');

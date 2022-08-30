@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Produto;
 use App\Http\Requests\Forncedor\RegisterRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 
 class ProdutoController extends Controller
@@ -26,7 +27,15 @@ class ProdutoController extends Controller
     {
         $requestData = $request->all();
 
-        Produto::create($requestData);
+        if ($request->imagem->isValid()) {
+            $nameFile = Str::of($request->nome)->slug('-') . '.' . $request->imagem->getClientOriginalExtension();
+            $imagem = $request->imagem->storeAs('imagem', $nameFile);
+            $requestData['imagem'] = $imagem;
+            Produto::create($requestData);
+            return 'certo';
+        }
+
+        return 'erro';
     }
 
     

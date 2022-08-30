@@ -3,6 +3,8 @@
 namespace App\Http\Requests\Forncedor;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Rules\cpf;
+use Illuminate\Validation\Rules\Unique;
 
 class RegisterRequest extends FormRequest
 {
@@ -15,6 +17,7 @@ class RegisterRequest extends FormRequest
     {
         return [
             'name' => 'required',
+            'cpf' => ['required', new Cpf, "unique:fornecedores,cpf"],
             'password' => ['required', 'min: 5', 'confirmed'],
             'segmento' => 'required',
             'celular' => ['required', 'size: 15'],
