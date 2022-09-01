@@ -62,6 +62,9 @@
                         </div>
                     </div>
                 </div>
+                
+                <input type="hidden" value="fornecedor{{auth()->user()->id}}" name="pastaFornecedor" id="pastaFornecedor">
+
                 <button type="submit" class="btn btn-success btn-block mt-3">
                     Enviar
                 </button>
