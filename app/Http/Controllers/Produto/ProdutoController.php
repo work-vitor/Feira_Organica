@@ -31,10 +31,12 @@ class ProdutoController extends Controller
 
         if ($request->imagem->isValid()) {
             $nameFile = Str::of($request->nome)->slug('-') . '.' . $request->imagem->getClientOriginalExtension();
-            $imagem = $request->imagem->storeAs('imagem/' . $request->pastaFornecedor, $nameFile);
+            $imagem = $request->imagem->storeAs('imagem' , $nameFile);
             $requestData['imagem'] = $imagem;
             Produto::create($requestData);
-            return 'certo';
+            return redirect()
+                ->route('produtos.index')
+                ->with('success', 'Conta criada com sucesso! Efetue Login');
         }
 
         return 'erro';

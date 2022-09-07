@@ -127,7 +127,7 @@
                                 @foreach($produtos as $produto)
                                 <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 d-flex align-items-stretch">
                                     <div class="card text-center bg-light">
-                                        <img src="https://i.ibb.co/xhd0jD4/depositphotos-270823052-stock-photo-bunch-of-fresh-bananas-isolated.webp"
+                                        <img src="{{url("storage/{$produto->imagem}")}}"
                                             alt="" class="card-img-top"></a>
                                         <div class="card-header">
                                             <td>R$ {{ $produto->preco }}</td>
