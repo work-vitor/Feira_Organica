@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Fornecedor;
 use App\Http\Requests\Fornecedor\RegisterRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class FornecedorController extends Controller
 {
@@ -17,7 +18,7 @@ class FornecedorController extends Controller
     
     public function create()
     {
-        return view('fornecedores.create');
+        return view('fornecedores.auth.create');
     }
 
     
@@ -29,11 +30,19 @@ class FornecedorController extends Controller
 
         $requestData['password'] = $password;
 
-        Fornecedor::create($requestData);
+        if ($request->foto->isValid()) {
+            $nameFile = Str::of($request->foto)->slug('-') . '.' . $request->foto->getClientOriginalExtension();
+            $imagem = $request->foto->storeAs('/imagem/fornecedor' , $nameFile);
+            $requestData['foto'] = $imagem;
+            Fornecedor::create($requestData);
+            return redirect()
+                ->route('fornecedores.loginF')
+                ->with('success', 'Conta criada com sucesso! Efetue Login');
+        }
+
         
-        return redirect()
-            ->route('fornecedores.loginF')
-            ->with('success', 'Conta criada com sucesso! Efetue Login');
+        
+        
 
     }
 

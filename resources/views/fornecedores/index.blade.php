@@ -39,7 +39,13 @@
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span>
                 </a>
+                <a class="nav-link" href="{{route('produtos.createP.create')}}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Cadastrar Produtos</span>
+                </a>
             </li>
+
+            
 
             <!-- Divider -->
             <!-- <hr class="sidebar-divider"> -->
@@ -101,6 +107,38 @@
                         <!-- CONTEÚDO -->
                         Dashboard do fornecedor
                     </main>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header bg-primary text-white">Meus dados:</div>
+                                <div class="card-body">
+                                    <ul class="list-group text-center">
+                                        <li class="list-group-item">
+                                            <img src="{{url("storage").auth()->user()->foto}}"
+                                            alt="200px"  class="img-fluid img-thumbnail"></a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <span class="font-weight-bold mb-1">Nome: </span>
+                                            {{auth()->user()->name}}
+                                        </li>
+                                        <li class="list-group-item">
+                                            <span class="font-weight-bold mb-1">CPF: </span>
+                                            {{auth()->user()->cpf}}
+                                        </li>
+                                        <li class="list-group-item">
+                                            <span class="font-weight-bold mb-1">Celular: </span>
+                                            {{auth()->user()->celular}}
+                                        </li>
+                                        <li class="list-group-item">
+                                            <span class="font-weight-bold mb-1">Segmento: </span>
+                                            {{auth()->user()->segmento}}
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
                 <!-- /.container-fluid -->

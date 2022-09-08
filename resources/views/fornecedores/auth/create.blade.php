@@ -49,7 +49,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="foto">Foto</label>
-                            <input type="text" name="foto" id="foto" class="form-control p-1" placeholder="Insira a foto">
+                            <input type="file" name="foto" id="foto" class="form-control p-1" placeholder="Insira a foto">
                         </div>
                     </div>
                     <div class="col-12 col-md-6">
@@ -72,6 +72,10 @@
                     Criar conta
                 </button>
             </form>
+            <hr>
+            <div class="text-center">
+                <a class="small" href="{{ route('fornecedores.loginF') }}">Ja tem uma conta? Faca login!</a>
+            </div>
         </div>
     </div>
 

@@ -31,7 +31,7 @@ class ProdutoController extends Controller
 
         if ($request->imagem->isValid()) {
             $nameFile = Str::of($request->nome)->slug('-') . '.' . $request->imagem->getClientOriginalExtension();
-            $imagem = $request->imagem->storeAs('imagem' , $nameFile);
+            $imagem = $request->imagem->storeAs('imagem/produto' , $nameFile);
             $requestData['imagem'] = $imagem;
             Produto::create($requestData);
             return redirect()
