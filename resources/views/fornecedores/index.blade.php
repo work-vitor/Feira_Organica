@@ -106,14 +106,33 @@
                     <main class="pb-5">
                         <!-- CONTEÚDO -->
                         Dashboard do fornecedor
+                        <hr>
+                        <div class="card-body">
+                            <form method="POST"action="">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-sm btn-danger">Deletar minha conta</button>
+                            </form>
+                        </div>
+                        <div class="card-body">
+                        <form method="POST"action="">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-sm btn-danger">Editar meus dados</button>
+                        </form>
+                        </div>
                     </main>
 
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header bg-primary text-white">Meus dados:</div>
+                                
                                 <div class="card-body">
                                     <ul class="list-group text-center">
+                                        
+                                        
+
                                         <li class="list-group-item">
                                             <img src="{{url("storage").auth()->user()->foto}}"
                                             alt="200px"  class="img-fluid img-thumbnail"></a>
@@ -136,6 +155,8 @@
                                         </li>
                                     </ul>
                                 </div>
+
+                                
                             </div>
                         </div>
                     </div>
