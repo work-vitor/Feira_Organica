@@ -32,7 +32,7 @@ class FornecedorController extends Controller
 
         if ($request->foto->isValid()) {
             $nameFile = Str::of($request->foto)->slug('-') . '.' . $request->foto->getClientOriginalExtension();
-            $imagem = $request->foto->storeAs('/imagem/fornecedor' , $nameFile);
+            $imagem = $request->foto->storeAs('imagem/fornecedor' , $nameFile);
             $requestData['foto'] = $imagem;
             Fornecedor::create($requestData);
             return redirect()

@@ -134,7 +134,7 @@
                                         
 
                                         <li class="list-group-item">
-                                            <img src="{{url("storage").auth()->user()->foto}}"
+                                            <img src="{{url('storage'). '/' .auth()->user()->foto}}"
                                             alt="200px"  class="img-fluid img-thumbnail"></a>
                                         </li>
                                         <li class="list-group-item">
