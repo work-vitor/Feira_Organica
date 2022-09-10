@@ -106,10 +106,6 @@
                     <!-- Page Heading -->
                     <h1 class="h3 mb-4 text-gray-800">PRODUTOS</h1>
 
-
-
-
-
                     <main class="pb-5">
                         <!-- CONTEÚDO -->
 
@@ -117,9 +113,11 @@
                             <div class="row">
                                 <!-- BOTÃO DE PESQUISA -->
                                 <div class="col-12 col-md-5">
-                                    <form class="justify-content-center justify-content-md-start mb-3 mb-md-0">
+                                    <form method="post" action="{{ route('produtos.search') }}"
+                                        class="justify-content-center justify-content-md-start mb-3 mb-md-0">
+                                        @csrf
                                         <div class="input-group input-group-sm">
-                                            <input type="text" class="form-control"
+                                            <input type="text" name="search" id="search" class="form-control"
                                                 placeholder="Digite aqui o que procura">
                                             <button class="btn btn-danger">
                                                 Buscar
@@ -127,6 +125,11 @@
                                         </div>
                                     </form>
 
+                                    @if(isset($filters))
+                                    {{ $produtos->appends($filters)->links() }}
+                                    @else
+                                    {{ $produtos->links() }}
+                                    @endif
                                 </div>
                             </div>
                             <hr class="mt-12">

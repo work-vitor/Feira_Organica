@@ -14,6 +14,7 @@ class ProdutoController extends Controller
     public function index()
     {
         $produtos = Produto::all();
+        $produtos = Produto::orderBy('nome')->paginate(5);
         return view('produtos.index', compact('produtos'));
         
     }
@@ -58,5 +59,14 @@ class ProdutoController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function search(Request $request) {
+        $filters = $request->except('_token');
+        $produtos = Produto::where('nome','LIKE',"%$request->search%")
+                            ->orWhere('preco','LIKE', "%$request->search%")
+                            ->paginate();
+
+        return view('produtos.index', compact('produtos', 'filters'));
     }
 }

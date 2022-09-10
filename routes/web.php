@@ -22,10 +22,12 @@ Route::group(['as' => 'produtos.'], function(){
         Route::post('createP', [ProdutoController::class, 'store'])->name('createP.store');
         Route::get('produtos', [ProdutoController::class, 'show'])->name('produtos.show');
 
+
     });
     
 
     Route::get('produtos', [ProdutoController::class, 'index'])->name('index');
+
 });
 
 
@@ -44,5 +46,7 @@ Route::group(['as' => 'fornecedores.'], function(){
         Route::get('fornecedores', [FornecedorController::class, 'index'])->name('index');
     });
 });
-    
 
+Route::any('/produtos/search',[ProdutoController::class, 'search'])->name('produtos.search');
+
+    
