@@ -20,7 +20,7 @@
 
 </head>
 
-<body id="page-top" >
+<body id="page-top">
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -46,7 +46,7 @@
                 </a>
             </li>
 
-            
+
 
             <!-- Divider -->
             <!-- <hr class="sidebar-divider"> -->
@@ -58,10 +58,11 @@
         <div id="content-wrapper" class="d-flex flex-column">
 
             <!-- Main Content -->
-            <div id="content" style="background-color: #e9faff;" >
+            <div id="content" style="background-color: #e9faff;">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light  topbar mb-4 static-top shadow" style="background-color: #e9faff;">
+                <nav class="navbar navbar-expand navbar-light  topbar mb-4 static-top shadow"
+                    style="background-color: #e9faff;">
 
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -106,8 +107,12 @@
                     <h1 class="h3 mb-4 text-gray-800">PRODUTOS</h1>
 
 
+
+
+
                     <main class="pb-5">
                         <!-- CONTEÚDO -->
+
                         <div class="container">
                             <div class="row">
                                 <!-- BOTÃO DE PESQUISA -->
@@ -129,8 +134,8 @@
                                 @foreach($produtos as $produto)
                                 <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 d-flex align-items-stretch">
                                     <div class="card text-center bg-light">
-                                        <img src="{{url("storage/{$produto->imagem}")}}"
-                                            alt="" class="card-img-top"></a>
+                                        <img src="{{url("storage/{$produto->imagem}")}}" alt="" class="card-img-top"
+                                            height="220px">
                                         <div class="card-header">
                                             <td>R$ {{ $produto->preco }}</td>
                                         </div>
@@ -139,7 +144,7 @@
                                                 <td>{{ $produto->nome }}</td>
                                             </h5>
                                             <p class="card-text">
-                                                Alguma descrição qualquer se for ter
+                                                Para fazer seu pedido, entre em contato com o forncedor
                                             </p>
                                         </div>
                                         <div class="card-footer">
@@ -156,8 +161,6 @@
                                 </div>
                                 @endforeach
                             </div>
-
-
                         </div>
 
                     </main>
