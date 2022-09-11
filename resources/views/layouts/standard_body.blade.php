@@ -1,3 +1,6 @@
+
+<!-- Start HTML -->
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -8,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>LaraEvents</title>
+    <title>@yield('title')</title>
 
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link
@@ -19,36 +22,9 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 </head>
+    
 
+<!-- start Body -->
 
+<body id="page-top">
 
-            <!-- Footer -->
-            <footer class="sticky-footer" style="background-color: #e9faff;">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>&copy; LaraFeira {{ date('Y') }}</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
-
-        </div>
-        <!-- End of Content Wrapper -->
-
-    </div>
-    <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Bootstrap core JavaScript-->
-    <script src="{{ asset('vendor/jquery/jquery.min.js.js') }}"></script>
-    <script src="{{ asset('vendor/bootstrap/bootstrap.bundle.min.js') }}"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
-
-</body>
-</html>
