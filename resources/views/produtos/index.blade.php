@@ -42,7 +42,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span>
+                    <span>Dashboar</span>
                 </a>
             </li>
 
@@ -71,29 +71,33 @@
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
+                        @if (isset(auth()->user()->name))
+                            {{auth()->user()->name}}
+                            <!-- Nav Item - User Information -->
+                            <li class="nav-item dropdown no-arrow">
+                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                                        
+                                            <i class="fa fa-user"></i>
+                                            <!-- Dropdown - User Information -->
+                                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                            aria-labelledby="userDropdown">
+                                                <form method="POST" action="{{route('fornecedores.loginF.destroy')}}">
+                                                    @csrf
+                                                    <button class="dropdown-item" type="submit">
+                                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                                        Sair
+                                                    </button>
+                                                </form>
+                                            </div>
+                                    </span>
+                                    
+                                </a>
+                            </li>
+                        @endif
 
-                        <!-- Nav Item - User Information -->
-                        <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">
-                                    {{auth()->user()->name}}
-                                </span>
-                                <i class="fa fa-user"></i>
-                            </a>
-
-                            <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
-                                <form method="POST" action="{{route('fornecedores.loginF.destroy')}}">
-                                    @csrf
-                                    <button class="dropdown-item" type="submit">
-                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Sair
-                                    </button>
-                                </form>
-                            </div>
-                        </li>
+                            
 
                     </ul>
 
@@ -201,3 +205,6 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
+
+</body>
+</html>
