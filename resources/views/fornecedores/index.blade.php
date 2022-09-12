@@ -98,14 +98,13 @@
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-sm btn-danger">Deletar minha conta</button>
+                                <a href="{{route('fornecedores.updateF', auth()->user()->id)}}" class="btn  btn-primary">
+                                    <i class="fa fa-edit"></i>
+                                </a>
                             </form>
                         </div>
-                        <div class="card-body">
-                        <form method="POST"action="">
-                            @csrf
-                            @method('DELETE')
-                            <button class="btn btn-sm btn-danger">Editar meus dados</button>
-                        </form>
+                        <div class="d-flex align-items-center">
+                            
                         </div>
                     </main>
 

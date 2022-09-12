@@ -44,6 +44,8 @@ Route::group(['as' => 'fornecedores.'], function(){
     Route::group(['middleware' => 'auth'], function(){
         Route::post('logout', [LoginController::class, 'destroy'])->name('loginF.destroy');
         Route::get('fornecedores', [FornecedorController::class, 'index'])->name('index');
+        Route::get('updateF/{fornecedor}', [FornecedorController::class, 'edit'])->name('updateF');
+        Route::put('updateF/{fornecedor}', [FornecedorController::class, 'update'])->name('updateF.update');
     });
 });
 
