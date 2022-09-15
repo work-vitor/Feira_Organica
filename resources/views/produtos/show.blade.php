@@ -1,6 +1,6 @@
 @extends('layouts.standard_body')
 @section('title')
-    Larafeira - Fornecedor
+    Larafeira - Meus Produtos
 @endsection
 
 <!-- Page Wrapper -->
@@ -92,64 +92,42 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-4 text-gray-800">Dashboard</h1>
+                <h1 class="h3 mb-4 text-gray-800">Meus Produtos</h1>
 
                 <main class="pb-5">
                     <!-- CONTEÚDO -->
-                    Dashboard do fornecedor
-                    <hr>
-                    <div class="card-body">
-                        <form method="POST"action="">
-                            @csrf
-                            @method('DELETE')
-                            <button class="btn btn-sm btn-danger">Deletar minha conta</button>
-                            <a href="{{ route('fornecedores.updateF', auth()->user()->id) }}" class="btn  btn-primary">
-                                <i class="fa fa-edit"></i>
-                            </a>
-                        </form>
-                    </div>
-                    <div class="d-flex align-items-center">
-
+                    <div class="row">
+                        @foreach ($produtos as $produto)
+                            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 d-flex align-items-stretch">
+                                <div class="card text-center bg-light">
+                                    <img src="{{ url("storage/{$produto->imagem}") }}" alt=""
+                                        class="card-img-top" height="220px">
+                                    <div class="card-header">
+                                        <td>R$ {{ $produto->preco }}</td>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <td>{{ $produto->nome }}</td>
+                                        </h5>
+                                        <p class="card-text">
+                                            Para fazer seu pedido, entre em contato com o forncedor
+                                        </p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <form class="d-block">
+                                            <a class="btn btn-primary" href="{{ route('produtos.updateP', $produto->id) }}">
+                                                Editar produto
+                                            </a>
+                                        </form>
+                                        <small class="text-success">
+                                            <td>{{ $produto->quantidade }}</td> dúzias em estoque
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
                 </main>
-
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-header bg-primary text-white">Meus dados:</div>
-
-                            <div class="card-body">
-                                <ul class="list-group text-center">
-
-
-
-                                    <li class="list-group-item">
-                                        <img src="{{ url('storage') . '/' . auth()->user()->foto }}" alt="200px"
-                                            class="img-fluid img-thumbnail"></a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <span class="font-weight-bold mb-1">Nome: </span>
-                                        {{ auth()->user()->name }}
-                                    </li>
-                                    <li class="list-group-item">
-                                        <span class="font-weight-bold mb-1">CPF: </span>
-                                        {{ auth()->user()->cpf }}
-                                    </li>
-                                    <li class="list-group-item">
-                                        <span class="font-weight-bold mb-1">Celular: </span>
-                                        {{ auth()->user()->celular }}
-                                    </li>
-                                    <li class="list-group-item">
-                                        <span class="font-weight-bold mb-1">Segmento: </span>
-                                        {{ auth()->user()->segmento }}
-                                    </li>
-                                </ul>
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
 
             </div>
             <!-- /.container-fluid -->

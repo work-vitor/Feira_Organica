@@ -20,14 +20,12 @@ Route::group(['as' => 'produtos.'], function(){
     Route::group(['middleware' => 'auth'], function() {
         Route::get('createP', [ProdutoController::class, 'create'])->name('createP.create');
         Route::post('createP', [ProdutoController::class, 'store'])->name('createP.store');
-        Route::get('produtos', [ProdutoController::class, 'show'])->name('produtos.show');
-
-
+        Route::get('myProducts', [ProdutoController::class, 'show'])->name('produtos.show');
+        Route::get('updateP/{produto}', [ProdutoController::class, 'edit'])->name('updateP');
+        Route::put('updateP/{produto}', [ProdutoController::class, 'update'])->name('updateP.update');
     });
     
-
     Route::get('produtos', [ProdutoController::class, 'index'])->name('index');
-
 });
 
 

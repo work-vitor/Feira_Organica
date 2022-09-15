@@ -46,13 +46,16 @@ class ProdutoController extends Controller
     
     public function edit($id)
     {
-        //
+        $produto = Produto::find($id);
+        return view('produtos.edit', compact('produto'));
     }
 
     
     public function update(Request $request, $id)
     {
-        //
+        $produto = Produto::find($id);
+        $produto->update($request->all());
+        return redirect()->route('produtos.produtos.show');
     }
 
     
@@ -68,5 +71,11 @@ class ProdutoController extends Controller
                             ->paginate();
 
         return view('produtos.index', compact('produtos', 'filters'));
+    }
+
+    public function show() {
+        $produtos = Produto::all();
+        $produtos = Produto::orderBy('nome')->paginate(5);
+        return view('produtos.show', compact('produtos'));
     }
 }
