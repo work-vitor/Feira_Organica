@@ -112,11 +112,11 @@
                                         </div>
                                     </form>
 
-                                    @if(isset($filters))
+                                    {{-- @if(isset($filters))
                                     {{ $produtos->appends($filters)->links() }}
                                     @else
                                     {{ $produtos->links() }}
-                                    @endif
+                                    @endif --}}
                                 </div>
                             </div>
                             <hr class="mt-12">
@@ -155,6 +155,12 @@
 
                     </main>
 
+                </div>
+
+                <div class="container mt-5">
+                    <div class="d-flex">
+                        {{ $produtos->links() }}
+                    </div>
                 </div>
                 <!-- /.container-fluid -->
 

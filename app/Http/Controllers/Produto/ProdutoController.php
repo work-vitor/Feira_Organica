@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 
+
 class ProdutoController extends Controller
 {
     public function index()
