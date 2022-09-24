@@ -72,12 +72,13 @@ class FornecedorController extends Controller
         $requestData['password'] = $password;
 
         
-           
-            
+        if ($request->has('foto')) {
             $nameFile = Str::of($request->foto)->slug('-') . '.' . $request->foto->getClientOriginalExtension();
             $imagem = $request->foto->storeAs('imagem/fornecedor' , $nameFile);
             $requestData['foto'] = $imagem;
-
+        }
+            
+            
             $fornecedor->update($requestData);
 
             return redirect()

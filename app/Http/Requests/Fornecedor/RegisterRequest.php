@@ -5,6 +5,8 @@ namespace App\Http\Requests\Fornecedor;
 use Illuminate\Foundation\Http\FormRequest;
 use App\Rules\cpf;
 use Illuminate\Validation\Rules\Unique;
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterRequest extends FormRequest
 {
@@ -17,7 +19,7 @@ class RegisterRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'cpf' => ['required', new Cpf, "unique:fornecedores,cpf"],
+            'cpf' => ['required', new Cpf, Rule::unique('fornecedores')->ignore(Auth::id())],
             'password' => ['required', 'min: 5', 'confirmed'],
             'segmento' => 'required',
             'celular' => ['required', 'size: 15'],
