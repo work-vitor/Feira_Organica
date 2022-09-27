@@ -19,6 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('categoria_id');
             $table->float('preco');
             $table->integer('quantidade');
+            $table->string('tp_unidade');
             $table->string('imagem', 256);
             $table->timestamps();
 

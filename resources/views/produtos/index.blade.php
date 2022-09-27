@@ -144,7 +144,7 @@
                                                 </button>
                                             </form>
                                             <small class="text-success">
-                                                <td>{{ $produto->quantidade }}</td> dúzias em estoque
+                                                <td>{{ $produto->quantidade }}</td> {{ $produto->tp_unidade}}
                                             </small>
                                         </div>
                                     </div>

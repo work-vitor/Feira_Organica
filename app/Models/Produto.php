@@ -16,6 +16,7 @@ class Produto extends Model
         'categoria_id',
         'preco',
         'quantidade',
+        'tp_unidade',
         'imagem'
     ];
 }

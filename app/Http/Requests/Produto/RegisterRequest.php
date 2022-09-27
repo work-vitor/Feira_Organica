@@ -18,6 +18,7 @@ class RegisterRequest extends FormRequest
             'categoria_id' => 'required',
             'preco' => 'required',
             'quantidade' => ['required', 'min: 1'],
+            'tp_unicade' => 'required',
         ];
     }
 }

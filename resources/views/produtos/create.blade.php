@@ -55,6 +55,20 @@
                             <div class="invalid-feedback">{{ $errors->first('quantidade') }}</div>
                         </div>
                     </div>
+
+                    <div class="form-group">
+                            <label for="tp_unidade">Unidade</label>
+                            <select name="tp_unidade" id="tp_unidade"
+                                class="form-control {{ $errors->has('tp_unidade') ? 'is-invalid' : '' }}">
+                                <option value="">Escolha qual unidade</option>
+                                <option value="Kg">Kg</option>
+                                <option value="Dúzias">Dúzia</option>
+                                <option value="Unidades">Unidade</option>
+                                <!-- Foreach com as categorias -->
+                            </select>
+                        </div>
+
+                    
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="imagem">Imagem</label>
