@@ -3,6 +3,7 @@
 use App\Http\Controllers\Fornecedor\Auth\LoginController;
 use App\Http\Controllers\Fornecedor\FornecedorController;
 use App\Http\Controllers\Produto\ProdutoController;
+use App\Http\Controllers\FeiraController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,6 +47,10 @@ Route::group(['as' => 'fornecedores.'], function(){
         Route::put('updateF/{fornecedor}', [FornecedorController::class, 'update'])->name('updateF.update');
     });
 });
+
+Route::get('/feiras',[FeiraController::class, 'index'])->name('feiras.index');
+Route::get('/feiras/create', [FeiraController::class, 'create'])->name('feiras.create');
+Route::post('/feiras',[FeiraController::class, 'store'])->name('feiras.store');
 
 Route::any('/produtos/search',[ProdutoController::class, 'search'])->name('produtos.search');
 
