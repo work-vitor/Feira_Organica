@@ -56,13 +56,20 @@
                         </div>
                     </div>
 
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="nome">Data</label>
-                            <input type="text" name="data" id="data"
-                                class="form-control {{ $errors->has('rua') ? 'is-invalid' : '' }}"
-                                placeholder="Digite o dia da semana">
-                            <div class="invalid-feedback">{{ $errors->first('data') }}</div>
+                    <div class="col-md-3">
+                    <div class="form-group">
+                            <label for="data">Dia da semana</label>
+                            <select name="data" id="data"
+                                class="form-control {{ $errors->has('data') ? 'is-invalid' : '' }}">
+                                <option value="">Escolha a data da feira</option>
+                                <option value="Segunda-Feira">Segunda-Feira</option>
+                                <option value="Terça-fera">Terça-fera</option>
+                                <option value="Quarta-feira">Quarta-feira</option>
+                                <option value="Quinta-feira">Quinta-feira</option>
+                                <option value="Sexta-feira">Sexta-feira</option>
+                                <option value="Sábado">Sábado</option>
+                                <!-- Foreach com as categorias -->
+                            </select>
                         </div>
                     </div>
 
