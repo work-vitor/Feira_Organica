@@ -21,10 +21,7 @@ return new class extends Migration
             $table->string('rua');
             $table->string('bairro');
             $table->string('cidade');
-            $table->unsignedBigInteger('feiras_id');
             $table->timestamps();
-
-            $table->foreign('feiras_id')->references('id')->on('feiras');
 
         });
     }

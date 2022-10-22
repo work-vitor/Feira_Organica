@@ -30,7 +30,7 @@
                         <div class="form-group">
                             <label for="nome">Cep</label>
                             <input type="text" name="cep" id="cep"
-                                class="form-control {{ $errors->has('cep') ? 'is-invalid' : '' }}"
+                                class="form-control cep {{ $errors->has('cep') ? 'is-invalid' : '' }}"
                                 placeholder="Digite o cep da feira">
                             <div class="invalid-feedback">{{ $errors->first('cep') }}</div>
                         </div>
@@ -39,7 +39,7 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="nome">Cidade</label>
-                            <input type="text" name="cidade" id="cidade"
+                            <input type="text" name="cidade" id="city"
                                 class="form-control {{ $errors->has('cidade') ? 'is-invalid' : '' }}"
                                 placeholder="Digite a cidade">
                             <div class="invalid-feedback">{{ $errors->first('cidade') }}</div>
@@ -49,10 +49,20 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="nome">Rua</label>
-                            <input type="text" name="rua" id="rua"
+                            <input type="text" name="rua" id="street"
                                 class="form-control {{ $errors->has('rua') ? 'is-invalid' : '' }}"
                                 placeholder="Digite a rua">
                             <div class="invalid-feedback">{{ $errors->first('rua') }}</div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="nome">Bairro</label>
+                            <input type="text" name="bairro" id="district"
+                                class="form-control {{ $errors->has('bairro') ? 'is-invalid' : '' }}"
+                                placeholder="Digite o nome da feira">
+                            <div class="invalid-feedback">{{ $errors->first('bairro') }}</div>
                         </div>
                     </div>
 
@@ -73,15 +83,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="nome">Bairro</label>
-                            <input type="text" name="bairro" id="bairro"
-                                class="form-control {{ $errors->has('bairro') ? 'is-invalid' : '' }}"
-                                placeholder="Digite o nome da feira">
-                            <div class="invalid-feedback">{{ $errors->first('bairro') }}</div>
-                        </div>
-                    </div>
+                  
 
      
                    
@@ -96,6 +98,11 @@
             </form>
         </div>
     </div>
+
+
+    <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('vendor/jquery-mask/jquery.mask.min.js')}}"></script>
+    <script src="{{ asset('js/auth/register.js')}}"></script>
 </body>
 
 </html>

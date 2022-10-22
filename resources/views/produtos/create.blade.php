@@ -39,17 +39,11 @@
                         </div>
                     </div>
 
-                  
-
-                  
-
-
-
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="preco">Preço</label>
                             <input type="text" name="preco" id="preco"
-                                class="form-control {{ $errors->has('preco') ? 'is-invalid' : '' }}"
+                                class="form-control preco {{ $errors->has('preco') ? 'is-invalid' : '' }}"
                                 placeholder="Digite o valor do produto">
                             <div class="invalid-feedback">{{ $errors->first('preco') }}</div>
                         </div>
