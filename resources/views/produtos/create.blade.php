@@ -30,13 +30,21 @@
                             <label for="categoria_id">Categoria</label>
                             <select name="categoria_id" id="categoria_id"
                                 class="form-control {{ $errors->has('categoria_id') ? 'is-invalid' : '' }}">
-                                <option value="">Escolha uma categoria...</option>
-                                <option value="1">teste</option>
-                                <!-- Foreach com as categorias -->
+                                @foreach ($categorias as $categoria)
+                            <option value="{{ $categoria->id }}">{{ $categoria->name }}</option>
+                            @endforeach
+                             
                             </select>
                             <div class="invalid-feedback">{{ $errors->first('categoria_id') }}</div>
                         </div>
                     </div>
+
+                  
+
+                  
+
+
+
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="preco">Preço</label>
@@ -57,18 +65,18 @@
                     </div>
 
                     <div class="form-group">
-                            <label for="tp_unidade">Unidade</label>
-                            <select name="tp_unidade" id="tp_unidade"
-                                class="form-control {{ $errors->has('tp_unidade') ? 'is-invalid' : '' }}">
-                                <option value="">Escolha qual unidade</option>
-                                <option value="Kg">Kg</option>
-                                <option value="Dúzias">Dúzia</option>
-                                <option value="Unidades">Unidade</option>
-                                <!-- Foreach com as categorias -->
-                            </select>
-                        </div>
+                        <label for="tp_unidade">Unidade</label>
+                        <select name="tp_unidade" id="tp_unidade"
+                            class="form-control {{ $errors->has('tp_unidade') ? 'is-invalid' : '' }}">
+                            <option value="">Escolha qual unidade</option>
+                            <option value="Kg">Kg</option>
+                            <option value="Dúzias">Dúzia</option>
+                            <option value="Unidades">Unidade</option>
+                            <!-- Foreach com as categorias -->
+                        </select>
+                    </div>
 
-                    
+
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="imagem">Imagem</label>
@@ -76,8 +84,9 @@
                         </div>
                     </div>
                 </div>
-                
-                <input type="hidden" value="fornecedor{{auth()->user()->id}}" name="pastaFornecedor" id="pastaFornecedor">
+
+                <input type="hidden" value="fornecedor{{auth()->user()->id}}" name="pastaFornecedor"
+                    id="pastaFornecedor">
 
                 <button type="submit" class="btn btn-success btn-block mt-3">
                     Enviar

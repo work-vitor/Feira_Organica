@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Feiras extends Model
 {
     use HasFactory;
-    protected $fillable = ['nome', 'data', 'cep', 'rua','bairro','cidade'];
+    protected $fillable = ['nome', 'data', 'cep', 'rua','bairro','cidade', 'feiras_id'];
 }

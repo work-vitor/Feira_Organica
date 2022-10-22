@@ -16,14 +16,16 @@ return new class extends Migration
         Schema::create('produtos', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->unsignedBigInteger('categoria_id');
             $table->float('preco');
             $table->integer('quantidade');
             $table->string('tp_unidade');
             $table->string('imagem', 256);
+            $table->bigInteger('categoria_id')->unsigned();
+            $table->foreign('categoria_id')->references('id')->on('categorias');
             $table->timestamps();
 
-            $table->foreign('categoria_id')->references('id')->on('categorias');
+           
+
         });
     }
 
@@ -34,6 +36,5 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('produtos');
     }
 };

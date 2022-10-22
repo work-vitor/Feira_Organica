@@ -1,6 +1,6 @@
 @extends('layouts.standard_body')
 @section('title')
-    Larafeira - Home
+Larafeira - Home
 @endsection
 
 <body id="page-top">
@@ -64,15 +64,16 @@
                                 </span>
                                 <i class="fa fa-user"></i>
                             </a>
-                            
+
                             <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
                                 <form method="POST" action="{{route('fornecedores.loginF.destroy')}}">
                                     @csrf
                                     <button class="dropdown-item" type="submit">
                                         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                         Sair
-                                    </button>    
+                                    </button>
                                 </form>
                             </div>
                         </li>
@@ -80,9 +81,9 @@
                     </ul>
                     @endif
 
-                            
 
-                    
+
+
 
                 </nav>
                 <!-- End of Topbar -->
@@ -129,14 +130,20 @@
                                         <div class="card-header">
                                             <td>R$ {{ $produto->preco }}</td>
                                         </div>
+
+
                                         <div class="card-body">
                                             <h5 class="card-title">
                                                 <td>{{ $produto->nome }}</td>
                                             </h5>
+
+                                        
                                             <p class="card-text">
                                                 Para fazer seu pedido, entre em contato com o forncedor
                                             </p>
                                         </div>
+
+                                    
                                         <div class="card-footer">
                                             <form class="d-block">
                                                 <button class="btn btn-danger">
@@ -150,8 +157,10 @@
                                     </div>
                                 </div>
                                 @endforeach
+
                             </div>
                         </div>
+                        
 
                     </main>
 
@@ -166,4 +175,4 @@
 
             </div>
             <!-- End of Main Content -->
-@extends('layouts.end_html')
+            @extends('layouts.end_html')
