@@ -124,12 +124,16 @@
 
 
                                     <li class="list-group-item">
-                                        <img src="{{ url('storage') . '/' . auth()->user()->foto }}" alt="200px"
-                                            class="img-fluid img-thumbnail"></a>
+                                        <a><img src="{{ url('storage') . '/' . auth()->user()->foto }}" 
+                                        width="400" height="400"></a>
                                     </li>
                                     <li class="list-group-item">
                                         <span class="font-weight-bold mb-1">Nome: </span>
                                         {{ auth()->user()->name }}
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span class="font-weight-bold mb-1">Email: </span>
+                                        {{ auth()->user()->email }}
                                     </li>
                                     <li class="list-group-item">
                                         <span class="font-weight-bold mb-1">CPF: </span>

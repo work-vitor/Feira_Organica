@@ -24,6 +24,15 @@
                             <div class="invalid-feedback">{{ $errors->first('name')}}</div>
                         </div>
                     </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" name="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : ''}}" placeholder="Digite seu email" value="{{ auth()->user()->email}}">
+                            <div class="invalid-feedback">{{ $errors->first('email')}}</div>
+                        </div>
+                    </div>
+
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="password">Senha</label>
