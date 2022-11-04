@@ -20,11 +20,9 @@ return new class extends Migration
             $table->integer('quantidade');
             $table->string('tp_unidade');
             $table->string('imagem', 256);
-            $table->bigInteger('categoria_id')->unsigned();
+            $table->unsignedBigInteger('categoria_id');
             $table->foreign('categoria_id')->references('id')->on('categorias');
             $table->timestamps();
-
-           
 
         });
     }

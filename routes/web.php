@@ -38,6 +38,9 @@ Route::group(['as' => 'fornecedores.'], function(){
         //Login
         Route::get('loginF', [LoginController::class, 'create'])->name('loginF');
         Route::post('loginF', [LoginController::class, 'store'])->name('loginF.store'); 
+        
+        //ResetPassword
+        Route::get('ResetP', [FornecedorController::class, 'resetPass'])->name('resetP');
     });
 
     Route::group(['middleware' => 'auth'], function(){

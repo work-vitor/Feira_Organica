@@ -23,7 +23,7 @@
                 <!-- Imports JS -->
             
             <!-- Bootstrap core JavaScript-->
-            <script src="{{ asset('vendor/jquery/jquery.min.js.js') }}"></script>
+            <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script> 
             <script src="{{ asset('vendor/bootstrap/bootstrap.bundle.min.js') }}"></script>
             
             <!-- Custom scripts for all pages-->

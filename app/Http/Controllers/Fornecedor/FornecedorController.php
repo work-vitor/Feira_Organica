@@ -92,4 +92,8 @@ class FornecedorController extends Controller
     {
         //
     }
+
+    public function resetPass(){
+        return view('fornecedores.auth.reset_password');
+    }
 }

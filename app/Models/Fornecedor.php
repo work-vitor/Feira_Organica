@@ -14,6 +14,7 @@ class Fornecedor extends Authenticatable
 
     protected $fillable = [
         'name',
+        'email',
         'cpf',
         'password',
         'foto',

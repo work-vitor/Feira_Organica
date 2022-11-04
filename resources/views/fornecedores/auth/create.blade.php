@@ -23,6 +23,15 @@
                             <div class="invalid-feedback">{{ $errors->first('name')}}</div>
                         </div>
                     </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" name="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : ''}}" placeholder="Digite seu email">
+                            <div class="invalid-feedback">{{ $errors->first('email')}}</div>
+                        </div>
+                    </div>
+
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="password">Senha</label>
@@ -79,8 +88,8 @@
         </div>
     </div>
 
-    <script src="{{ asset('vendor/jquery/jquery.min.js.js')}}"></script>
-    <script src="{{ asset('vendor/jquery-mask/jquery.mask.min.js.js')}}"></script>
+    <script src=" {{asset('vendor/jquery/jquery.min.js')}}"></script> 
+    <script src="{{ asset('vendor/jquery-mask/jquery.mask.min.js')}}"></script> 
 
     <script>
         $('.cel').mask('(00) 00000-0000');
