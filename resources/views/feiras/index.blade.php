@@ -66,7 +66,7 @@
                 </nav>
                 <div class="container-fluid">
                     <main class="pb-5">
-                        <h2>Eventos</h2>
+                        <h2>FEIRAS</h2>
                         <form>
                             <div class="d-flex justify-content-between">
                                 <div class="d-flex flex-fill">

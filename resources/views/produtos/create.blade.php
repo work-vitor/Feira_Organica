@@ -1,6 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
+<nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #5F9EA0">
+    <a class="navbar-brand" href="#">LaraFeiras</a>
+
+    <img src="https://i.ibb.co/f43vK21/Brown-Illustration-Cookies-Logo-2.png" alt="Brown-Illustration-Cookies-Logo-2"
+        class="d-inline-block align-top" alt="" style="height:60px">
+        
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ route('produtos.index') }}">Produtos <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ route('produtos.createP.create') }}">Cadastrar produto</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ route('fornecedores.index') }}">Minha conta</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,10 +51,11 @@
                             <label for="categoria_id">Categoria</label>
                             <select name="categoria_id" id="categoria_id"
                                 class="form-control {{ $errors->has('categoria_id') ? 'is-invalid' : '' }}">
+                                <option value="">Escolha uma categoria</option>
                                 @foreach ($categorias as $categoria)
-                            <option value="{{ $categoria->id }}">{{ $categoria->name }}</option>
-                            @endforeach
-                             
+                                <option value="{{ $categoria->id }}">{{ $categoria->name }}</option>
+                                @endforeach
+
                             </select>
                             <div class="invalid-feedback">{{ $errors->first('categoria_id') }}</div>
                         </div>
@@ -58,16 +80,18 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="tp_unidade">Unidade</label>
-                        <select name="tp_unidade" id="tp_unidade"
-                            class="form-control {{ $errors->has('tp_unidade') ? 'is-invalid' : '' }}">
-                            <option value="">Escolha qual unidade</option>
-                            <option value="Kg">Kg</option>
-                            <option value="Dúzias">Dúzia</option>
-                            <option value="Unidades">Unidade</option>
-                            <!-- Foreach com as categorias -->
-                        </select>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="tp_unidade">Unidade</label>
+                            <select name="tp_unidade" id="tp_unidade"
+                                class="form-control {{ $errors->has('tp_unidade') ? 'is-invalid' : '' }}">
+                                <option value="">Escolha qual unidade</option>
+                                <option value="Kg">Kg</option>
+                                <option value="Dúzias">Dúzia</option>
+                                <option value="Unidades">Unidade</option>
+                                <!-- Foreach com as categorias -->
+                            </select>
+                        </div>
                     </div>
 
 

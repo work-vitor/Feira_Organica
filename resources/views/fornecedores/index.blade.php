@@ -29,10 +29,15 @@
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Cadastrar Produtos</span>
             </a>
-            <a class="nav-link" href="">
+            <a class="nav-link" href="{{ route('produtos.index') }}">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Editar Produtos</span>
+                <span>Produtos</span>
             </a>
+            <a class="nav-link" href="{{ route('feiras.index') }}">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Feiras</span>
+            </a>
+
         </li>
 
 

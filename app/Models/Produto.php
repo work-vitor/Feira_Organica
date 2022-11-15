@@ -22,6 +22,6 @@ class Produto extends Model
 
     public function categoria()
     {
-        return $this->belongsTo('App\Models\Categoria');
+        return $this->belongsTo('App\Models\Categoria'); // exibir os dados da categoria na view do produtos
     }
 }
