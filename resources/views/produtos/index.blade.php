@@ -131,6 +131,11 @@ Larafeira - Home
                                             <td>R$ {{ $produto->preco }}</td>
                                         </div>
 
+                                        <div class="card-header">
+                                            <td> {{ $produto->categoria->name }}</td>
+                                        </div>
+
+
 
                                         <div class="card-body">
                                             <h5 class="card-title">
