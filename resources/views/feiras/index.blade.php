@@ -18,36 +18,13 @@
     <link href="{{ asset('/css/sb-admin-2.min.css') }}" rel="stylesheet">
 </head>
 
-<body id="page-top">
+<body style="background-color: #f8f9fc">
 
     <!-- Page Wrapper -->
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-            <!-- Sidebar - Brand -->
-            <div class="sidebar-brand d-flex align-items-center justify-content-center">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-calendar-check"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">Feira Organica</div>
-            </div>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span>
-                </a>
-            </li>
-
-            <!-- Divider -->
-            <!-- <hr class="sidebar-divider"> -->
-
-        </ul>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -57,47 +34,110 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #5F9EA0">
 
-                    <!-- Sidebar Toggle (Topbar) -->
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                        <i class="fa fa-bars"></i>
-                    </button>
+
+
+                    @if (isset(auth()->user()->name))
+                    <a class="navbar-brand" href="#">LaraFeiras</a>
+
+                    <img src="https://i.ibb.co/f43vK21/Brown-Illustration-Cookies-Logo-2.png"
+                        alt="Brown-Illustration-Cookies-Logo-2" class="d-inline-block align-top" alt=""
+                        style="height:60px">
+
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{{ route('produtos.index') }}">Produtos <span
+                                        class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{{ route('fornecedores.index') }}">Minha conta</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{{ route('produtos.createP.create') }}">Cadastrar Produto</a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline 600 small" style="color: white">
+                                    {{auth()->user()->name}}
+                                </span>
+                                <i class="fa fa-user"></i>
+                            </a>
+
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <form method="POST" action="{{route('fornecedores.loginF.destroy')}}">
+                                    @csrf
+                                    <button class="dropdown-item" type="submit">
+                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Sair
+                                    </button>
+                                </form>
+                            </div>
+                        </li>
+
+                    </ul>
+                    @else
+                    <a class="navbar-brand" href="#">LaraFeiras</a>
+
+                    <img src="https://i.ibb.co/f43vK21/Brown-Illustration-Cookies-Logo-2.png"
+                        alt="Brown-Illustration-Cookies-Logo-2" class="d-inline-block align-top" alt=""
+                        style="height:60px">
+
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{{ route('produtos.index') }}">Produtos <span
+                                        class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{{ route('fornecedores.index') }}">Login</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{{ route('fornecedores.createF.create') }}">Criar conta</a>
+                            </li>
+                        </ul>
+                    </div>
+                    @endif
                 </nav>
                 <div class="container-fluid">
                     <main class="pb-5">
-                        <h2>FEIRAS</h2>
+                        <h2 style="margin-top: 15px;">FEIRAS</h2>
                         <div class="row">
-                                <!-- BOTÃO DE PESQUISA -->
-                                <div class="col-12 col-md-5">
-                                    <form method="post" action="{{ route('feiras.search') }}"
-                                        class="justify-content-center justify-content-md-start mb-3 mb-md-0">
-                                        @csrf
-                                        <div class="input-group input-group-sm">
-                                            <input type="text" name="search" id="search" class="form-control"
-                                                placeholder="Digite aqui o que procura" style="margin-top:3px">
-                                            <button class="btn btn-primary">
-                                                Buscar
-                                            </button>
-                                        </div>
-                                    </form>
+                            <!-- BOTÃO DE PESQUISA -->
+                            <div class="col-12 col-md-5">
+                                <form method="post" action="{{ route('feiras.search') }}"
+                                    class="justify-content-center justify-content-md-start mb-3 mb-md-0">
+                                    @csrf
+                                    <div class="input-group input-group-sm">
+                                        <input type="text" name="search" id="search" class="form-control"
+                                            placeholder="Digite aqui o que procura" style="margin-top:3px">
+                                        <button class="btn btn-primary" style="background-color: #5F9EA0"><i class="fa fa-search"></i></button>
+                                    </div>
+                                </form>
 
-                                    {{-- @if(isset($filters))
+                                {{-- @if(isset($filters))
                                     {{ $feiras->appends($filters)->links() }}
-                                    @else
-                                    {{ $feiras->links() }}
-                                    @endif --}}
-                                </div>
-                                <a href="{{ route('feiras.create') }}" class="btn btn-primary">Adicionar feira</a>
-
+                                @else
+                                {{ $feiras->links() }}
+                                @endif --}}
                             </div>
-                       
-                                       
-                                      
-                                 
+                            @if (isset(auth()->user()->name))
+                            <a href="{{ route('feiras.create') }}" class="btn btn-primary" style="background-color: #5F9EA0">Adicionar feira</a>
+                            @endif
 
+                        </div>
 
-                           
                         <table class="table mt-4">
                             <thead class="thead bg-white">
                                 <tr>
@@ -125,29 +165,18 @@
                         </table>
                     </main>
                 </div>
-        </div>
-        <!-- End of Main Content -->
-
-        <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span>&copy; LaraEvents {{ date('Y') }}</span>
-                </div>
             </div>
-            <div class="container mt-5">
-                    <div class="d-flex">
-                        {{ $feiras->links() }}
-                    </div>
-                </div>
-        </footer>
-        <!-- End of Footer -->
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
 
     </div>
-    <!-- End of Content Wrapper -->
-   
-    </div>
-    
+
     <!-- End of Page Wrapper -->
 
     <!-- Scroll to Top Button-->
