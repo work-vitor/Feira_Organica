@@ -67,16 +67,37 @@
                 <div class="container-fluid">
                     <main class="pb-5">
                         <h2>FEIRAS</h2>
-                        <form>
-                            <div class="d-flex justify-content-between">
-                                <div class="d-flex flex-fill">
-                                    <input type="text" name="search" class="form-control w-50 mr-2" value=""
-                                        placeholder="Pesquisar...">
-                                    <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                        <div class="row">
+                                <!-- BOTÃO DE PESQUISA -->
+                                <div class="col-12 col-md-5">
+                                    <form method="post" action="{{ route('feiras.search') }}"
+                                        class="justify-content-center justify-content-md-start mb-3 mb-md-0">
+                                        @csrf
+                                        <div class="input-group input-group-sm">
+                                            <input type="text" name="search" id="search" class="form-control"
+                                                placeholder="Digite aqui o que procura" style="margin-top:3px">
+                                            <button class="btn btn-primary">
+                                                Buscar
+                                            </button>
+                                        </div>
+                                    </form>
+
+                                    {{-- @if(isset($filters))
+                                    {{ $feiras->appends($filters)->links() }}
+                                    @else
+                                    {{ $feiras->links() }}
+                                    @endif --}}
                                 </div>
                                 <a href="{{ route('feiras.create') }}" class="btn btn-primary">Adicionar feira</a>
+
                             </div>
-                        </form>
+                       
+                                       
+                                      
+                                 
+
+
+                           
                         <table class="table mt-4">
                             <thead class="thead bg-white">
                                 <tr>
@@ -114,13 +135,19 @@
                     <span>&copy; LaraEvents {{ date('Y') }}</span>
                 </div>
             </div>
+            <div class="container mt-5">
+                    <div class="d-flex">
+                        {{ $feiras->links() }}
+                    </div>
+                </div>
         </footer>
         <!-- End of Footer -->
 
     </div>
     <!-- End of Content Wrapper -->
-
+   
     </div>
+    
     <!-- End of Page Wrapper -->
 
     <!-- Scroll to Top Button-->

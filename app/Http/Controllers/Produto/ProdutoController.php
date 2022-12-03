@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Produto;
 use App\Http\Controllers\Controller;
 use App\Models\Produto;
 use App\Models\Categoria;
+use App\Models\Feiras;
 use App\Http\Requests\Forncedor\RegisterRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -25,7 +26,10 @@ class ProdutoController extends Controller
     public function create()
     {
         $categorias = Categoria::all(); //TO DO: diminuir o tamanho da consulta
-        return view ('produtos.create', compact('categorias'));
+        $feiras = Feiras::all(); //TO DO: diminuir o tamanho da consulta
+
+        return view ('produtos.create', compact('categorias', 'feiras'));
+
     }
 
     

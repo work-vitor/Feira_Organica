@@ -17,11 +17,17 @@ class Produto extends Model
         'preco',
         'quantidade',
         'tp_unidade',
+        'feira_id',
         'imagem'
     ];
 
     public function categoria()
     {
         return $this->belongsTo('App\Models\Categoria'); // exibir os dados da categoria na view do produtos
+    }
+
+    public function feira()
+    {
+        return $this->belongsTo('App\Models\Feiras'); // exibir os dados da categoria na view do produtos
     }
 }

@@ -103,6 +103,21 @@
                     </div>
                 </div>
 
+                <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="feira_id">Feira</label>
+                            <select name="feira_id" id="feira_id"
+                                class="form-control {{ $errors->has('feira_id') ? 'is-invalid' : '' }}">
+                                <option value="">Escolha uma categoria</option>
+                                @foreach ($feiras as $feira)
+                                <option value="{{ $feira->id }}">{{ $feira->nome }}</option>
+                                @endforeach
+
+                            </select>
+                            <div class="invalid-feedback">{{ $errors->first('feira_id') }}</div>
+                        </div>
+                    </div>
+
                 <input type="hidden" value="fornecedor{{auth()->user()->id}}" name="pastaFornecedor"
                     id="pastaFornecedor">
 

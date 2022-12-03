@@ -145,12 +145,12 @@ Larafeira - Home
                                             <td>R$ {{ $produto->preco }}</td>
                                         </div>
 
-                                        <div class="card-header">
-                                            <td> {{ $produto->categoria->name }}</td>
-                                        </div>
 
+                                        <a class="btn btn-primary" href="{{ route('feiras.index', $produto->categoria->id) }}">
+                                        <td> {{ $produto->feira->nome }}</td>
 
-
+                                            </a>
+                                            
                                         <div class="card-body">
                                             <h5 class="card-title">
                                                 <td>{{ $produto->nome }}</td>

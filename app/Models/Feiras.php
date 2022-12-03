@@ -9,7 +9,9 @@ class Feiras extends Model
 {
     use HasFactory;
 
-    protected $table = 'feiras';
 
     protected $fillable = ['nome', 'data', 'cep', 'rua','bairro','cidade'];
+    public function produtos(){
+        return $this->hasMany(Produto::class);
+    }
 }

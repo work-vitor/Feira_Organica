@@ -55,6 +55,7 @@ Route::get('/feiras',[FeiraController::class, 'index'])->name('feiras.index');
 Route::get('/feiras/create', [FeiraController::class, 'create'])->name('feiras.create');
 Route::post('/feiras',[FeiraController::class, 'store'])->name('feiras.store');
 
+Route::any('/feiras/search',[FeiraController::class, 'search'])->name('feiras.search');
 Route::any('/produtos/search',[ProdutoController::class, 'search'])->name('produtos.search');
 
     
