@@ -19,7 +19,7 @@ class RegisterRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'email' => ['required'],
+            'email' => ['required', 'unique:fornecedores,email->ignore(Auth::id())'],
             'cpf' => ['required', new Cpf, Rule::unique('fornecedores')->ignore(Auth::id())],
             'password' => ['required', 'min: 5', 'confirmed'],
             'segmento' => 'required',

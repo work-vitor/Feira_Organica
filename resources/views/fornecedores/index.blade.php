@@ -130,7 +130,7 @@
 
                                     <li class="list-group-item">
                                         <a><img src="{{ url('storage') . '/' . auth()->user()->foto }}" 
-                                        width="400" height="400"></a>
+                                        width="200" height="200"></a>
                                     </li>
                                     <li class="list-group-item">
                                         <span class="font-weight-bold mb-1">Nome: </span>
