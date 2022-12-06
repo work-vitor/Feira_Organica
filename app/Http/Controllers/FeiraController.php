@@ -27,6 +27,7 @@ class FeiraController extends Controller
         $filters = $request->except('_token');
         $feiras = Feiras::where('nome','LIKE',"%$request->search%")
                             ->orWhere('bairro','LIKE', "%$request->search%")
+                            ->orWhere('cidade','LIKE', "%$request->search%")
                             ->paginate();
 
         return view('feiras.index', compact('feiras', 'filters'));

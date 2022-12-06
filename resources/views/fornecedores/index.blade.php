@@ -1,51 +1,13 @@
 @extends('layouts.standard_body')
 @section('title')
-    Larafeira - Fornecedor
+Larafeira - Fornecedor
 @endsection
 
 <!-- Page Wrapper -->
 <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-        <!-- Sidebar - Brand -->
-        <div class="sidebar-brand d-flex align-items-center justify-content-center">
-            <div class="sidebar-brand-icon rotate-n-15">
-                <i class="fas fa-calendar-check"></i>
-            </div>
-            <div class="sidebar-brand-text mx-3">LaraFeira</div>
-        </div>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider my-0">
-
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Dashboard</span>
-            </a>
-            <a class="nav-link" href="{{ route('produtos.createP.create') }}">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Cadastrar Produtos</span>
-            </a>
-            <a class="nav-link" href="{{ route('produtos.index') }}">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Produtos</span>
-            </a>
-            <a class="nav-link" href="{{ route('feiras.index') }}">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Feiras</span>
-            </a>
-
-        </li>
-
-
-
-        <!-- Divider -->
-        <!-- <hr class="sidebar-divider"> -->
-
-    </ul>
+   
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
@@ -55,7 +17,30 @@
         <div id="content">
 
             <!-- Topbar -->
-            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+            <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #5F9EA0">
+                <a class="navbar-brand" href="#">LaraFeiras</a>
+
+                <img src="https://i.ibb.co/f43vK21/Brown-Illustration-Cookies-Logo-2.png"
+                    alt="Brown-Illustration-Cookies-Logo-2" class="d-inline-block align-top" alt="" style="height:60px">
+
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ route('produtos.index') }}">Produtos <span
+                                    class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ route('fornecedores.index') }}">Minha conta</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ route('produtos.createP.create') }}">Cadastrar Produto</a>
+                        </li>
+
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ route('feiras.create') }}">Cadastrar Feira</a>
+                        </li>
+                    </ul>
+                </div>
 
                 <!-- Sidebar Toggle (Topbar) -->
                 <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -97,14 +82,23 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-4 text-gray-800">Dashboard</h1>
+                <h1 class="h3 mb-4 text-gray-800" style="margin-top: 10px">Dashboard do Fornecedor</h1>
 
                 <main class="pb-5">
                     <!-- CONTEÚDO -->
-                    Dashboard do fornecedor
+                    Bem-Vindo {{ auth()->user()->name }}
+
                     <hr>
-                    <div class="card-body">
-                        <form method="POST"action="">
+                    
+                    
+                </main>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header bg-primary text-white">Meus dados:</div>
+                            <div class="card-body">
+                        <form method="POST" action="">
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-sm btn-danger">Deletar minha conta</button>
@@ -113,24 +107,14 @@
                             </a>
                         </form>
                     </div>
-                    <div class="d-flex align-items-center">
-
-                    </div>
-                </main>
-
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-header bg-primary text-white">Meus dados:</div>
-
                             <div class="card-body">
                                 <ul class="list-group text-center">
 
 
 
                                     <li class="list-group-item">
-                                        <a><img src="{{ url('storage') . '/' . auth()->user()->foto }}" 
-                                        width="200" height="200"></a>
+                                        <a><img src="{{ url('storage') . '/' . auth()->user()->foto }}" width="200"
+                                                height="200"></a>
                                     </li>
                                     <li class="list-group-item">
                                         <span class="font-weight-bold mb-1">Nome: </span>

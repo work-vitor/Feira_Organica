@@ -72,7 +72,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="quantidade">Quantidade</label>
+                            <label for="quantidade">Qtd máxima por pessoa</label>
                             <input type="number" name="quantidade" id="quantidade"
                                 class="form-control {{ $errors->has('quantidade') ? 'is-invalid' : '' }}"
                                 placeholder="Informe a quantidade do produto">
@@ -108,7 +108,7 @@
                             <label for="feira_id">Feira</label>
                             <select name="feira_id" id="feira_id"
                                 class="form-control {{ $errors->has('feira_id') ? 'is-invalid' : '' }}">
-                                <option value="">Escolha uma categoria</option>
+                                <option value="">Escolha uma feira</option>
                                 @foreach ($feiras as $feira)
                                 <option value="{{ $feira->id }}">{{ $feira->nome }}</option>
                                 @endforeach
@@ -127,6 +127,11 @@
             </form>
         </div>
     </div>
+
+    <script>
+        $('.preco').mask('00.00');
+
+        </script>
 </body>
 
 </html>

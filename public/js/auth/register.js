@@ -1,4 +1,5 @@
 $('.cep').mask('00000-000');
+$('.preco').mask('00.00');
 $(document).on('blur', '#cep', function() {
     const cep = $(this).val();
 

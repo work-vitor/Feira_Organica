@@ -8,10 +8,11 @@
 
     <link rel="stylesheet" type="text/css" href="{{ asset('css/sb-admin-2.min.css') }}">
 </head>
-<body>
+<body style="background-color: #ADD8E6">
     <h1 class="text-center my-4">Login</h1>
 
     <div class="container">
+        
         <div class="row justify-content-center">
             <div class="col-md-6 col-lg-4">
 
@@ -27,14 +28,18 @@
                         </div>
                     @endif
 
-                <div class="card shadow my-4 mx-auto">
+                <div class="card shadow my-4 mx-auto" style="border-color: black">
+                <img src="https://i.ibb.co/f43vK21/Brown-Illustration-Cookies-Logo-2.png"
+                        alt="Brown-Illustration-Cookies-Logo-2" class="d-inline-block align-top" alt=""
+                        style="height:250px">
                     <div class="card-body">
+                        
                         <form action="{{ route('fornecedores.loginF.store')}}" method="POST" autocomplete="off">
                             @csrf
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group"> 
-                                        <input type="text" name="email" id="email" class="form-control email {{ $errors->has('email') ? 'is-invalid' : ''}}" placeholder="E-mail" value="{{ old('email')}}">
+                                        <input type="text" style="border-color:black" name="email" id="email" class="form-control email {{ $errors->has('email') ? 'is-invalid' : ''}}" placeholder="E-mail" value="{{ old('email')}}">
                                         <div class="invalid-feedback">{{ $errors->first('email')}}</div>
                                     </div>
                                 </div>
@@ -42,6 +47,7 @@
                                 <div class="col-12">  
                                     <div class="form-group">     
                                         <input
+                                            style="border-color: black"
                                             type="password"
                                             name="password"
                                             class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}"

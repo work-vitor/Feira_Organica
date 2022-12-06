@@ -115,7 +115,7 @@ Larafeira - Home
                             <div class="row">
                                 <!-- BOTÃO DE PESQUISA -->
                                 <div class="col-12 col-md-5">
-                                    <form method="post" action="{{ route('produtos.search') }}"
+                                    <form method="GET" action="{{ route('produtos.search') }}"
                                         class="justify-content-center justify-content-md-start mb-3 mb-md-0">
                                         @csrf
                                         <div class="input-group input-group-sm">
@@ -125,6 +125,8 @@ Larafeira - Home
                                                 Buscar
                                             </button>
                                         </div>
+
+
                                     </form>
 
                                     {{-- @if(isset($filters))
@@ -133,6 +135,7 @@ Larafeira - Home
                                     {{ $produtos->links() }}
                                     @endif --}}
                                 </div>
+                                       
                             </div>
                             <hr class="mt-12">
                             <div class="row">
@@ -146,11 +149,6 @@ Larafeira - Home
                                         </div>
 
 
-                                        <a class="btn btn-primary" href="{{ route('feiras.index', $produto->categoria->id) }}">
-                                        <td> {{ $produto->feira->nome }}</td>
-
-                                            </a>
-                                            
                                         <div class="card-body">
                                             <h5 class="card-title">
                                                 <td>{{ $produto->nome }}</td>
@@ -169,10 +167,19 @@ Larafeira - Home
                                                     Entrar em contato com o fornecedor
                                                 </button>
                                             </form>
+
+                                            
                                             <small class="text-success">
-                                                <td>{{ $produto->quantidade }}</td> {{ $produto->tp_unidade}}
+                                                <td>{{ $produto->quantidade }}</td> {{ $produto->tp_unidade}} p/pessoa
                                             </small>
                                         </div>
+                                        
+                                        <a class="btn btn-primary btn-sm" style="background-color:#5F9EA0"
+                                            href="{{ route('feiras.index', $produto->categoria->id) }}">
+                                            <td> {{ $produto->feira->nome }}</td>
+
+                                        </a>
+
                                     </div>
                                 </div>
                                 @endforeach

@@ -14,11 +14,17 @@ use Illuminate\Support\Str;
 
 class ProdutoController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+
         $produtos = Produto::all();
+        $categorias = Categoria::all(); //TO DO: diminuir o tamanho da consulta
+
         $produtos = Produto::orderBy('nome')->paginate(5);
-        return view('produtos.index', compact('produtos'));
+        $categorias = Categoria::orderBy('name')->paginate(5);
+
+      
+        return view('produtos.index', compact('produtos', 'categorias'));
         
     }
 
@@ -74,11 +80,13 @@ class ProdutoController extends Controller
 
     public function search(Request $request) {
         $filters = $request->except('_token');
+        
+
         $produtos = Produto::where('nome','LIKE',"%$request->search%")
                             ->orWhere('preco','LIKE', "%$request->search%")
                             ->paginate();
 
-        return view('produtos.index', compact('produtos', 'filters'));
+        return view('produtos.index', compact('produtos','filters'));
     }
 
     public function show() {

@@ -122,8 +122,11 @@
                                     <div class="input-group input-group-sm">
                                         <input type="text" name="search" id="search" class="form-control"
                                             placeholder="Digite aqui o que procura" style="margin-top:3px">
-                                        <button class="btn btn-primary" style="background-color: #5F9EA0"><i class="fa fa-search"></i></button>
+                                        <button class="btn btn-primary" style="background-color: #5F9EA0"><i
+                                                class="fa fa-search"></i></button>
                                     </div>
+
+                                    
                                 </form>
 
                                 {{-- @if(isset($filters))
@@ -133,7 +136,8 @@
                                 @endif --}}
                             </div>
                             @if (isset(auth()->user()->name))
-                            <a href="{{ route('feiras.create') }}" class="btn btn-primary" style="background-color: #5F9EA0">Adicionar feira</a>
+                            <a href="{{ route('feiras.create') }}" class="btn btn-primary"
+                                style="background-color: #5F9EA0">Adicionar feira</a>
                             @endif
 
                         </div>
@@ -157,7 +161,6 @@
                                     <td class="align-middle">{{ $feira->rua}}</td>
                                     <td class="align-middle">{{ $feira->bairro}}</td>
                                     <td class="align-middle">{{ $feira->cidade}}</td>
-
                                 </tr>
 
                                 @endforeach
