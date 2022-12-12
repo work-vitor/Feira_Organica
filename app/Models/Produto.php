@@ -18,6 +18,7 @@ class Produto extends Model
         'quantidade',
         'tp_unidade',
         'feira_id',
+        'fornecedor_id',
         'imagem'
     ];
 
@@ -29,5 +30,10 @@ class Produto extends Model
     public function feira()
     {
         return $this->belongsTo('App\Models\Feiras'); // exibir os dados da categoria na view do produtos
+    }
+
+    public function fornecedor()
+    {
+        return $this->belongsTo('App\Models\Fornecedor'); // exibir os dados da categoria na view do produtos
     }
 }

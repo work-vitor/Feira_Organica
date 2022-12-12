@@ -22,10 +22,10 @@ return new class extends Migration
             $table->string('imagem', 256);
             $table->unsignedBigInteger('categoria_id');
             $table->unsignedBigInteger('feira_id');
+            $table->unsignedBigInteger('fornecedor_id');
             $table->foreign('categoria_id')->references('id')->on('categorias');
             $table->foreign('feira_id')->references('id')->on('feiras');
-
-            
+            $table->foreign('fornecedor_id')->references('id')->on('fornecedores');
             $table->timestamps();
 
         });

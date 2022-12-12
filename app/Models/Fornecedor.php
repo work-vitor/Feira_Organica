@@ -21,4 +21,8 @@ class Fornecedor extends Authenticatable
         'celular',
         'segmento'
     ];
+
+    public function produtos(){
+        return $this->hasMany(Produto::class);
+    }
 }

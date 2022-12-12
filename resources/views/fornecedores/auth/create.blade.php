@@ -94,7 +94,7 @@
     <script src="{{ asset('vendor/jquery-mask/jquery.mask.min.js')}}"></script> 
 
     <script>
-        $('.cel').mask('(00) 00000-0000');
+        $('.cel').mask('5500000000000');
         $('.cpf').mask('000.000.000-00');
     </script>
     

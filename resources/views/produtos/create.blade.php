@@ -6,11 +6,12 @@
 
     <img src="https://i.ibb.co/f43vK21/Brown-Illustration-Cookies-Logo-2.png" alt="Brown-Illustration-Cookies-Logo-2"
         class="d-inline-block align-top" alt="" style="height:60px">
-        
+
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-                <a class="nav-link" href="{{ route('produtos.index') }}">Produtos <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{ route('produtos.index') }}">Produtos <span
+                        class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="{{ route('produtos.createP.create') }}">Cadastrar produto</a>
@@ -104,34 +105,43 @@
                 </div>
 
                 <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="feira_id">Feira</label>
-                            <select name="feira_id" id="feira_id"
-                                class="form-control {{ $errors->has('feira_id') ? 'is-invalid' : '' }}">
-                                <option value="">Escolha uma feira</option>
-                                @foreach ($feiras as $feira)
-                                <option value="{{ $feira->id }}">{{ $feira->nome }}</option>
-                                @endforeach
+                    <div class="form-group">
+                        <label for="feira_id">Feira</label>
+                        <select name="feira_id" id="feira_id"
+                            class="form-control {{ $errors->has('feira_id') ? 'is-invalid' : '' }}">
+                            <option value="">Escolha uma feira</option>
+                            @foreach ($feiras as $feira)
+                            <option value="{{ $feira->id }}">{{ $feira->nome }}</option>
+                            @endforeach
 
-                            </select>
-                            <div class="invalid-feedback">{{ $errors->first('feira_id') }}</div>
+                        </select>
+                        <div class="invalid-feedback">{{ $errors->first('feira_id') }}</div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            @foreach ($fornecedores as $fornecedor)
+                            <input type="hidden" id="fornecedor_id" name="fornecedor_id" value="{{ $fornecedor->id }}">
+                            @endforeach
                         </div>
                     </div>
 
-                <input type="hidden" value="fornecedor{{auth()->user()->id}}" name="pastaFornecedor"
-                    id="pastaFornecedor">
+                    <input type="hidden" value="fornecedor{{auth()->user()->id}}" name="pastaFornecedor"
+                        id="pastaFornecedor">
 
-                <button type="submit" class="btn btn-success btn-block mt-3">
-                    Enviar
-                </button>
+                    <button type="submit" class="btn btn-success btn-block mt-3">
+                        Enviar
+                    </button>
             </form>
         </div>
     </div>
 
     <script>
-        $('.preco').mask('00.00');
-
-        </script>
+    $('.preco').mask('00.00');
+    </script>
 </body>
 
 </html>

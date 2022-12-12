@@ -23,7 +23,7 @@ class RegisterRequest extends FormRequest
             'cpf' => ['required', new Cpf, Rule::unique('fornecedores')->ignore(Auth::id())],
             'password' => ['required', 'min: 5', 'confirmed'],
             'segmento' => 'required',
-            'celular' => ['required', 'size: 15'],
+            'celular' => ['required', 'size: 13'],
             'foto' => 'nullable',
         ];
     }

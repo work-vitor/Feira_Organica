@@ -135,7 +135,7 @@ Larafeira - Home
                                     {{ $produtos->links() }}
                                     @endif --}}
                                 </div>
-                                       
+
                             </div>
                             <hr class="mt-12">
                             <div class="row">
@@ -163,21 +163,25 @@ Larafeira - Home
 
                                         <div class="card-footer">
                                             <form class="d-block">
-                                                <button class="btn btn-danger">
-                                                    Entrar em contato com o fornecedor
-                                                </button>
+
+
+                                                <a class="btn btn-primary btn-sm" style="background-color:#5F9EA0"
+                                                    href="https://wa.me/{{ $produto->fornecedor->celular }}">Entrar em
+                                                    contato com o fornecedor
+                                                </a>
+
                                             </form>
 
-                                            
+
                                             <small class="text-success">
                                                 <td>{{ $produto->quantidade }}</td> {{ $produto->tp_unidade}} p/pessoa
                                             </small>
                                         </div>
-                                        
+
+
                                         <a class="btn btn-primary btn-sm" style="background-color:#5F9EA0"
                                             href="{{ route('feiras.index', $produto->categoria->id) }}">
                                             <td> {{ $produto->feira->nome }}</td>
-
                                         </a>
 
                                     </div>
